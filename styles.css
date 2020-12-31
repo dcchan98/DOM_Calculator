@@ -1,3 +1,27 @@
-.main-title{
-  color:red;
+*{
+  Box-sizing: Border-box
+}
+
+.row{
+  display: flex;
+}
+.box{
+  border: 1px solid;
+}
+.result{
+  padding-right: 20px;
+  text-align: right;
+  align-self: flex-end;
+}
+.full-width{
+  flex-basis: 400px;
+}
+.half{
+  flex-basis: 200px;
+}
+.quarter{
+  flex-basis: 100px;
+}
+.three-quarter{
+  flex-basis: 300px;
 }
