@@ -1,17 +1,20 @@
 *{
-  Box-sizing: Border-box
+  Box-sizing: Border-box;
 }
 
 .row{
+  height: 100px;
   display: flex;
 }
 .box{
   border: 1px solid;
 }
 .result{
+  margin: 0;
+  padding-top: 40px;
   padding-right: 20px;
   text-align: right;
-  align-self: flex-end;
+  font-size:larger;
 }
 .full-width{
   flex-basis: 400px;
