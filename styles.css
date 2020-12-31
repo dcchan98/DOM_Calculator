@@ -2,19 +2,23 @@
   Box-sizing: Border-box;
 }
 
+button{
+  font-size:20px;
+}
+
 .row{
   height: 100px;
   display: flex;
 }
 .box{
-  border: 1px solid;
+  border: 0px solid;
 }
 .result{
   margin: 0;
-  padding-top: 40px;
+  padding-top: 30px;
   padding-right: 20px;
   text-align: right;
-  font-size:larger;
+  font-size:40px;
 }
 .full-width{
   flex-basis: 400px;
@@ -28,3 +32,26 @@
 .three-quarter{
   flex-basis: 300px;
 }
+
+/* background Colors */
+
+.bg-black{
+  background-color:#000000;
+}
+.bg-orange{
+  background-color:#D69A57;
+}
+.bg-grey{
+  background-color:#D8D9DB;
+}
+.font-white{
+  color:#FFFFFF;
+}
+
+/* 
+colors
+black #000000
+grey #D8D9DB
+orange #D69A57
+white #D69A57
+*/
