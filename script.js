@@ -12,24 +12,24 @@ var curr; // to get a hold of what to display on result screen
 // whilst also updating the UI
 function addNumber(num) {
   if (operator == null) { // add to the second number
-    if (number2 == null) { // set num as num2
-      number2 = num;
-    } else {
-      number2 += num;
-    }
-    result.innerHTML = number2;
-  } else { // add to the first number
     if (number1 == null) { // set num as num2
       number1 = num;
     } else {
       number1 += num;
     }
     result.innerHTML = number1;
+  } else { // add to the first number
+    if (number2 == null) { // set num as num2
+      number2 = num;
+    } else {
+      number2 += num;
+    }
+    result.innerHTML = number2;
   }
 }
 
 function equalise() {
-  if (operator != null && number2 != null) { // best case, can equalise
+  if (operator != null && number2 != null && number1 != null) { // best case, can equalise
     if (operator == "÷") {
       number1 = Number(number1) / Number(number2);
     } else if (operator == "×") {
@@ -77,18 +77,40 @@ function reset() {
   result.innerHTML = "0"
 }
 
-arrayOfButtons = document.querySelectorAll("button");
-for (var i = 0; i < arrayOfButtons.length; i++) {
-  // var currButton = arrayOfButtons[i];
-  // console.log(currButton.innerHTML);
-}
-
 myNumberButtons = document.querySelectorAll(".number");
-console.log(myNumberButtons);
 
+// Event listener for number
 for (var i = 0; i < myNumberButtons.length; i++) {
-  
   myNumberButtons[i].addEventListener("click", function (e) {
     addNumber(e.target.innerHTML);
   })
+}
+
+// Event listener for C
+document.querySelector(".c").addEventListener("click", reset);
+
+// Event listener for ←
+document.querySelector(".backspace").addEventListener("click", backSpace);
+
+// Event listener for = 
+document.querySelector(".equal").addEventListener("click", equalise);
+
+// + - 
+document.querySelector(".add").addEventListener("click",
+  (e) => arithmeticOperator(e.target.innerHTML));
+
+document.querySelector(".subtract").addEventListener("click",
+  (e) => arithmeticOperator(e.target.innerHTML));
+
+  // * / 
+document.querySelector(".multiply").addEventListener("click",
+(e) => arithmeticOperator(e.target.innerHTML));
+
+document.querySelector(".divide").addEventListener("click",
+(e) => arithmeticOperator(e.target.innerHTML));
+
+// convenient debugger to 
+function debug(){
+   console.log(number1,operator,number2);
+  console.log("num1","op","num2")
 }
