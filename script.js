@@ -87,10 +87,8 @@ myNumberButtons = document.querySelectorAll(".number");
 console.log(myNumberButtons);
 
 for (var i = 0; i < myNumberButtons.length; i++) {
-  myNumberButtons[i].addEventListener("click", function () {
-    console.log("HTML")
-    console.log(myNumberButtons[i].innerHTML)
-    console.log("HTML")
-    addNumber(myNumberButtons[i].innerHTML);
+  
+  myNumberButtons[i].addEventListener("click", function (e) {
+    addNumber(e.target.innerHTML);
   })
 }
