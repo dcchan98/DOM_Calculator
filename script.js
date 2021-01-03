@@ -129,6 +129,6 @@ document.querySelector(".divide").addEventListener("click",
 
 // convenient debugger to 
 function debug(){
-   console.log(number1,operator,number2);
+  console.log(number1,operator,number2);
   console.log("num1","op","num2")
 }
