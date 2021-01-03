@@ -3,10 +3,12 @@ result = document.querySelector(".result");
 result.innerHTML = 0;
 
 // the 3 cached items
-var number1;
-var number2;
-var operator;
-var curr; // to get a hold of what to display on result screen
+var number1 = null;
+var number2 = null;
+var operator = null;
+
+// to get a hold of what to display on result screen
+var curr = null; 
 
 // this function takes in number as input and adds it to the current num
 // whilst also updating the UI
