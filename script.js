@@ -56,15 +56,13 @@ function equalise() {
     }
     default: {
       // Does nothing
-      // Stops insertion of weird operators somehow
+      // Stops insertion of weird operators
       return;
     }
     number2 = null;
     operator = null;
     number1 = number1.toString();
     result.innerHTML = number1;
-  } else { // error handling of equality
-    // do nothing
   }
 }
 
