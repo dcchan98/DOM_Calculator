@@ -59,11 +59,11 @@ function equalise() {
       // Stops insertion of weird operators
       return;
     }
-    number2 = null;
-    operator = null;
-    number1 = number1.toString();
-    result.innerHTML = number1;
   }
+  number2 = null;
+  operator = null;
+  number1 = number1.toString();
+  result.innerHTML = number1;
 }
 
 function arithmeticOperator(op) {
