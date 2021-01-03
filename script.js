@@ -29,15 +29,33 @@ function addNumber(num) {
 }
 
 function equalise() {
-  if (operator != null && number2 != null && number1 != null) { // best case, can equalise
-    if (operator == "÷") {
+
+  // Guard clause
+  if (operator == null || number2 == null || number1 == null) {
+    // Do nothing
+    return;
+  }
+  switch (operator) {
+    case "÷": {
       number1 = Number(number1) / Number(number2);
-    } else if (operator == "×") {
+      break;
+    }
+    case "x": {
       number1 = Number(number1) * Number(number2);
-    } else if (operator == "-") {
+      break;
+    }
+    case "-": {
       number1 = Number(number1) - Number(number2);
-    } else if (operator == "+") {
+      break;
+    }
+    case "+": {
       number1 = Number(number1) + Number(number2);
+      break;
+    }
+    default: {
+      // Does nothing
+      // Stops insertion of weird operators somehow
+      return;
     }
     number2 = null;
     operator = null;
