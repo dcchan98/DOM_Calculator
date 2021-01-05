@@ -3,10 +3,12 @@ result = document.querySelector(".result");
 result.innerHTML = 0;
 
 // the 3 cached items
-var number1;
-var number2;
-var operator;
-var curr; // to get a hold of what to display on result screen
+var number1 = null;
+var number2 = null;
+var operator = null;
+
+// to get a hold of what to display on result screen
+var curr = null; 
 
 // this function takes in number as input and adds it to the current num
 // whilst also updating the UI
@@ -29,23 +31,39 @@ function addNumber(num) {
 }
 
 function equalise() {
-  if (operator != null && number2 != null && number1 != null) { // best case, can equalise
-    if (operator == "÷") {
-      number1 = Number(number1) / Number(number2);
-    } else if (operator == "×") {
-      number1 = Number(number1) * Number(number2);
-    } else if (operator == "-") {
-      number1 = Number(number1) - Number(number2);
-    } else if (operator == "+") {
-      number1 = Number(number1) + Number(number2);
-    }
-    number2 = null;
-    operator = null;
-    number1 = number1.toString();
-    result.innerHTML = number1;
-  } else { // error handling of equality
-    // do nothing
+
+  // Guard clause
+  if (operator == null || number2 == null || number1 == null) {
+    // Do nothing
+    return;
   }
+  switch (operator) {
+    case "÷": {
+      number1 = Number(number1) / Number(number2);
+      break;
+    }
+    case "x": {
+      number1 = Number(number1) * Number(number2);
+      break;
+    }
+    case "-": {
+      number1 = Number(number1) - Number(number2);
+      break;
+    }
+    case "+": {
+      number1 = Number(number1) + Number(number2);
+      break;
+    }
+    default: {
+      // Does nothing
+      // Stops insertion of weird operators
+      return;
+    }
+  }
+  number2 = null;
+  operator = null;
+  number1 = number1.toString();
+  result.innerHTML = number1;
 }
 
 function arithmeticOperator(op) {
@@ -111,6 +129,6 @@ document.querySelector(".divide").addEventListener("click",
 
 // convenient debugger to 
 function debug(){
-   console.log(number1,operator,number2);
+  console.log(number1,operator,number2);
   console.log("num1","op","num2")
 }
